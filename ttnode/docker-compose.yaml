@@ -1,0 +1,17 @@
+services:
+  ttnode:
+    image: tiptime/ttnode:latest
+    container_name: ttnode
+    hostname: ttnode
+    volumes:
+      - ./node_cache:/mnt/data/ttnode
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /proc:/host/proc:ro
+    devices:
+      - /dev/mem
+    cap_add:
+      - SYS_RAWIO
+    privileged: true
+    network_mode: host
+    restart: always
+

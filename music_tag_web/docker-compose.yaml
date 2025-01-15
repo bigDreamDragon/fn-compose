@@ -1,0 +1,10 @@
+services:
+  music-tag:
+    image: xhongc/music_tag_web:latest
+    container_name: music-tag-web
+    ports:
+      - "8002:8002"
+    volumes:
+      - /vol1/@appshare/navidrome/music:/app/media
+      - /vol1/1000/musicTagWeb:/app/data
+    restart: unless-stopped
